@@ -1,0 +1,25 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+{%  include 'base/sidebar.html' %}
+<div class="book">
+    {% for book in books %}
+    <div onclick="location.href='{% url "book_selected" book.id %}';">
+    <header>
+        {{ book.title }}
+        <br>
+        <i>{{ book.author }}</i>
+    </header>
+    <article>
+        {{ book.summary|slice:":1000" }}
+    </article>
+    <article>
+        <div><i>Publication date</i>: {{ book.pub_date_book }}</div>
+        <div><i>Number of reviews</i>: {{ book.numbers_of_review }}</div>
+        <div><i>Rating</i>: {{ book.stars }}</div>
+    </article>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

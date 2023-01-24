@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'base/style.css' %}">
+    <title></title>
+</head>
+<body>
+
+    <!-- NavigationBar-->
+    {% include "base/navigation.html" %}
+    <main>
+
+    {% block content %}  {% endblock %}
+    </main>
+    {% if messages %}
+    <div class="error">
+    <ul style="list-style-type: none">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+    <footer style="position: fixed; bottom: 0px; right: 0px">
+
+        Copyleft &#127279; &#169; 2023
+    </footer>
+    <script>
+    function openNav() {
+      document.getElementById("Sidebar").style.display = "block";
+    }
+
+    function closeNav() {
+      document.getElementById("Sidebar").style.display = "none";
+
+    }
+</script>
+</body>
+</html>

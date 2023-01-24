@@ -1,0 +1,13 @@
+<aside id="Sidebar">
+    <a class="close" onclick="closeNav()">Close</a>
+    <a href="{% url 'add_book' %}">Add new book</a>
+    <hr>
+    <a href="{% url 'book_list'%}">All</a>
+
+        {% for genre in genres %}
+            <div>
+                <a href="{% url 'book_list' %}?g={{ genre.name }}">{{ genre.name }}</a>
+            </div>
+        {% endfor %}
+
+</aside>

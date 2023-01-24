@@ -1,0 +1,36 @@
+{% extends 'base/main.html' %}
+
+
+{% block content %}
+
+<div class="book" id="in_review">
+    <div style="cursor: auto">
+        <header>
+            {{ book.title }}
+            <br>
+            <i>{{ book.author }}</i>
+        </header>
+        <article>
+            {{ book.summary|slice:":10000" }}
+        </article>
+        <article>
+            <div><i>Publication date</i>: {{ book.pub_date_book }}</div>
+            <div><i>Number of reviews</i>: {{ book.numbers_of_review }}</div>
+            <div><i>Rating</i>: {{ book.stars }}</div>
+        </article>
+    </div>
+    <a href="{% url 'add_review' book.id %}"><b>Add review</b></a>
+    {% for review in reviews %}
+    <div class="review">
+        <div class="review_title">{{ review.title }}</div>
+        <div style="text-align: justify">{{ review.content }}</div>
+        <div style="text-align: left"><i>User: {{ review.user }}</i></div>
+        <div style="text-align: left"><i>{{ review.pub_date }}</i></div>
+        {% if request.user == review.user %}
+        <a href="{% url 'delete_review' review.id%}">Delete</a>
+        <a href="{% url 'update_review' review.id%}">Update</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

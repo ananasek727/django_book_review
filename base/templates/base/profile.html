@@ -1,0 +1,32 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+    <div class="profile">
+    {% if request.user.is_authenticated %}
+
+        <div id="profile_info">
+            <ul style="list-style-type: none;text-align: center">
+                <li><b>Profile Information:</b></li>
+                <li>{{ request.user.username }}</li>
+                <li>{{ request.user.email }}</li>
+                <li><a href="{% url 'password_reset' %}">Change password</a></li>
+            </ul>
+        </div>
+        <div>
+            {% for review in reviews %}
+            <div class="review">
+                <div class="review_title">{{ review.title }} ({{ review.book.title }})</div>
+                <div style="text-align: justify">{{ review.content }}</div>
+                {% if request.user == review.user %}
+                    <a href="{% url 'update_review' review.id%}">Update</a>
+                    <a href="{% url 'delete_review' review.id%}">Delete</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h5 style="text-align: center; color: red">You should not be here</h5>
+    {% endif %}
+    </div>
+
+{% endblock %}

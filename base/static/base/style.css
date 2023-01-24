@@ -1,0 +1,232 @@
+nav {
+    top:0;
+    position: fixed;
+    width: 100%;
+
+    color: #ffffff;
+    background-color: #000000;
+    text-align: left;
+    font-size: 20px;
+    content: "";
+    display: inline-block;
+    clear: both;
+    left: 0;
+    height: 40px;
+}
+
+nav a, nav form, nav div{
+    white-space: normal;
+    padding: 8px 16px;
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+}
+
+nav a:first-of-type{
+    color: white;
+    background-color: gray;
+}
+nav a:hover ,nav div{
+    color:#000000;
+    background-color:#ffffff;
+}
+nav a:last-child, nav a:nth-last-child(2), nav div{
+    text-align: right;
+    float: right;
+    right: 0;
+}
+@media (max-width: 990px) {
+    aside {
+    display: none;
+    left: 0;
+    width: 15%;
+    bottom: 0;
+    top: 0;
+    background-color: lightsteelblue;
+    color: white;
+    font-size: 20px;
+    padding-top: 30px;
+    }
+    .open {
+        display: inline-block;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+
+
+    }
+    .close{
+
+    }
+
+}
+@media (min-width: 991px) {
+    aside {
+    display: block;
+    left: 0;
+    width: 15%;
+    bottom: 0;
+    top: 0;
+    background-color: lightsteelblue;
+    color: white;
+    font-size: 20px;
+    padding-top: 30px;
+}
+    .open {
+        display: none;
+    }
+    .close{
+    display: none;
+}
+}
+
+aside a{
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  display: block;
+    color: white;
+}
+
+aside a:hover{
+    color: black;
+}
+
+aside>a{
+    color: lightgoldenrodyellow;
+    font-weight: bolder;
+}
+
+
+
+main {
+    top: 40px;
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 18px;
+
+}
+
+body {
+
+}
+.book {
+    display: grid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    box-sizing: inherit;
+    /*width: 100%;*/
+    width: 100%;
+    grid-template-rows: auto;
+    row-gap: 50px;
+    overflow: scroll;
+
+}
+.book>div{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 33em;
+    cursor:pointer;
+    background-color: lightgray;
+    height: fit-content;
+}
+.book_list_a{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+header{
+    font-size: 40px;
+    font-weight: bolder;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+}
+header i{
+    font-size: 20px;
+}
+
+.book article:first-of-type{
+    font-family: Cambria;
+}
+.book article>div{
+    color: brown;
+}
+
+#in_review{
+    padding-left: 25%;
+    padding-right: 25%;
+    background-color: white;
+}
+#in_review>div{
+    background-color: white;
+    row-gap: 10px;
+}
+.review{
+    border-style: double;
+    border-color: black;
+    text-align: center;
+    margin-top: 10px;
+
+}
+.review_title{
+    font-weight: bold;
+    font-size: larger;
+}
+.profile{
+    width: 100%;
+    /*display: grid;*/
+    padding-left: 25%;
+    padding-right: 25%;
+}
+.profile>div{
+    position: relative;
+    height: fit-content;
+}
+#profile_info{
+    height: fit-content;
+    margin-top:20px;
+    margin-bottom: 50px;
+    border-style: groove;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+    margin-top: 20px;
+  width: 60%;
+    border-style: double;
+    height: fit-content;
+    padding: 10px;
+}
+.error{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  text-align: center;
+  margin-top: 10px;
+  height: fit-content;
+  padding: 10px;
+  color: red;
+}
+
+a{
+    text-decoration: none;
+    color: blue;
+}

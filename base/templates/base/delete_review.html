@@ -1,0 +1,12 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+    <div class="center">
+    <form method="POST" action="">
+    {% csrf_token %}
+        <p>Are you sure you want to delete the review with title {{ title }}?</p>
+        <a href="{{ request.META.HTTP_REFERER }}">Go to previous site.</a>
+        <input type="submit" value="Yes">
+    </form>
+    </div>
+{% endblock %}
