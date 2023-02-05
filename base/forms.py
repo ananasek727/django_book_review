@@ -7,10 +7,10 @@ from django.forms.widgets import NumberInput
 
 
 class Book_Form(ModelForm):
-    # genres=forms.ModelMultipleChoiceField(
-    #     queryset=Genre.objects.all(),
-    #     widget=forms.CheckboxSelectMultiple
-    # )
+    genres = forms.ModelMultipleChoiceField(
+        queryset=Genre.objects.all(),
+        widget=forms.CheckboxSelectMultiple
+    )
     class Meta:
         model = Book
         fields = ['title', 'author', 'genres', 'pub_date_book', 'summary']
@@ -20,7 +20,7 @@ class Book_Form(ModelForm):
         }
         widgets = {
             'pub_date_book': NumberInput(attrs={'type': 'date'}),
-            'genres': forms.CheckboxSelectMultiple
+            # 'genres': forms.CheckboxSelectMultiple
         }
 
 

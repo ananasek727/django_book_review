@@ -4,20 +4,26 @@
 
 
 <div class="center">
+    <h1>Login</h1>
     <form method="POST" action="">
         {% csrf_token %}
 
-        <label>Username:</label>
-        <input type="text" name="username" placeholder="Enter Username" />
+        <div class="text-filed">
+            <input type="text" name="username" placeholder="username" />
 
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="Enter Password" />
-        <input type="submit" value="Login" />
-        <p>havent signed up yet?</p>
-        <a href="{% url 'register' %}">Sign up</a>
-        <p>Forgot a password</p>
-        <a href="{% url 'password_reset' %}">Reset password</a>
+        </div>
+        <div class="text-filed">
+            <input type="password" name="password" placeholder="password" />
+
+        </div>
+        <div class="submit-button">
+            <input class="hover-lighter" type="submit" value="Login" />
+        </div>
+        <a href="{% url 'password_reset' %}">Forgotten password?</a>
+{#        <button id="sign-up" onclick="location.href='{% url "register" %}'">Sign up</button>#}
+        <a href="{% url 'register' %}">Create an account</a>
     </form>
+
 
 
 </div>

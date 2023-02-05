@@ -2,10 +2,19 @@
 
 {% block content %}
     <div class="center">
+        <h1> Add new review</h1>
         <form method="POST" action="">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit">
+{#            {{ form.as_p }}#}
+            {% for field in form %}
+                <div class="basic-form">
+                    {{ field.label }}:
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <div class="submit-button">
+                <input type="submit" value="Submit">
+            </div>
         </form>
     </div>
 {% endblock %}

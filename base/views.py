@@ -6,7 +6,6 @@ from .forms import Book_Form, Review_Form
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
 # Sign Up Form
 from django.contrib.auth import login, authenticate, logout
 from .forms import SignupForm
@@ -75,6 +74,7 @@ def add_book(request):
             missing_fields.numbers_of_review = 0
             missing_fields.stars = 0
             missing_fields.save()
+            missing_fields.genres.add(*form.cleaned_data['genres'])
             return redirect('book_list')
     context = {'form': form}
     return render(request, 'base/form_add_book.html', context=context)
@@ -83,6 +83,7 @@ def add_book(request):
 @login_required(login_url='login')
 def add_review(request, pk):
     form_review = Review_Form()
+    contex_book = Book.objects.get(id=int(pk))
     if request.method == 'POST':
         form_review = Review_Form(request.POST)
         if form_review.is_valid():
@@ -95,7 +96,7 @@ def add_review(request, pk):
             book.stars = (book.stars + int(form_review.cleaned_data['stars']))/book.numbers_of_review
             book.save()
             return redirect('book_list')
-    context = {'form': form_review}
+    context = {'form': form_review, "book": contex_book.title}
     return render(request, 'base/form_add_review.html', context=context)
 
 
@@ -108,7 +109,7 @@ def update_review(request,pk):
         if form.is_valid():
             form.save()
         return redirect('book_list')
-    context = {'form':form}
+    context = {'form':form, 'book':review.book}
     return render(request, 'base/form_add_review.html',context=context)
 
 

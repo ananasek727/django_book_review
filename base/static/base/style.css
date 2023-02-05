@@ -1,3 +1,10 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 nav {
     top:0;
     position: fixed;
@@ -118,16 +125,13 @@ main {
 
 }
 
-body {
 
-}
 .book {
     display: grid;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 40px;
     box-sizing: inherit;
-    /*width: 100%;*/
     width: 100%;
     grid-template-rows: auto;
     row-gap: 50px;
@@ -190,7 +194,6 @@ header i{
 }
 .profile{
     width: 100%;
-    /*display: grid;*/
     padding-left: 25%;
     padding-right: 25%;
 }
@@ -206,13 +209,103 @@ header i{
 }
 
 .center {
-  margin-left: auto;
-  margin-right: auto;
-    margin-top: 20px;
-  width: 60%;
-    border-style: double;
+    margin: auto;
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgb(0 0 0 / 5%);
+    border-style: groove;
     height: fit-content;
-    padding: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.center h1{
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+}
+.center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+.center a{
+    display: block;
+    text-decoration: none;
+    padding: 20px 0;
+    border-bottom: 2px solid #adadad;
+    text-align: center;
+}
+.center a:nth-last-of-type(1){
+    border-bottom: none !important;
+}
+.center a:hover{
+    color: lightskyblue;
+}
+.center p{
+    text-align: center;
+    border-bottom: 1px solid #adadad;;
+    padding: 20px 0;
+    display: block;
+}
+
+.text-filed{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 20px 0;
+}
+
+.text-filed input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.submit-button input[type="submit"], .submit-button button, .basic-form button{
+    margin-bottom: 10px;
+    height: 50px;
+    border: 1px solid;
+    background: gray;
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+}
+
+.submit-button input[type="submit"]:hover, .submit-button button:hover {
+    background-color: lightgray;
+}
+
+.basic-form{
+    position: relative;
+
+    margin: 20px 0;
+}
+.basic-form input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 2px solid #adadad;
+}
+.basic-form small{
+    padding: 10px 0;
+    display: block;
+}
+.basic-form input[type="checkbox"], .basic-form input[type="radio"]{
+    height: 20px;
+    width: auto;
 }
 .error{
   display: block;

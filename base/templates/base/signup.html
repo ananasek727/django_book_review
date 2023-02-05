@@ -1,23 +1,28 @@
 {% extends 'base/main.html' %}
   
 {% block content %}  
-<div class = "center">
-  <h2>Sign up</h2>  
+<div class = "center" >
+  <h1>Sign up</h1>
   <form method="post">  
     {% csrf_token %}  
       {% for field in form %}  
-      <p>  
-        {{ field.label_tag }}<br>  
-        {{ field }}  
+
+        <div class="basic-form">
+        {{ field.label_tag }}
+        {{ field }}
+
         {% if field.help_text %}  
-          <small >{{ field.help_text }}</small>
-        {% endif %}  
+          <br><small >{{ field.help_text }}</small>
+        {% endif %}
+
         {% for error in field.errors %}  
           <p style="color: red">{{ error }}</p>  
         {% endfor %}  
-      </p>  
-      {% endfor %}  
-    <button type="submit">Sign up</button>  
+        </div>
+      {% endfor %}
+    <div class="submit-button">
+        <button type="submit">Sign up</button>
+    </div>
   </form>  
 </div>  
 {% endblock %} 
