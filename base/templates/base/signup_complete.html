@@ -3,10 +3,12 @@
 {% block content %} 
   
     <div class="center">
-	    <h2>Sign Up complete</h2>
+	    <h1>Sign up complete</h1>
 		<hr>
         <p>Your password has been set.Please confirm your email address to complete the registration You may go ahead and log in now.</p>
-        <a href="/login" >Log in</a>
+        <div class="submit-button">
+            <button onclick="location.href='{% url "login" %}'" >Log in</button>
+        </div>
     </div>
 
 {% endblock %}
