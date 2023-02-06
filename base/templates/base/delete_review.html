@@ -6,7 +6,9 @@
     {% csrf_token %}
         <p>Are you sure you want to delete the review with title {{ title }}?</p>
         <a href="{{ request.META.HTTP_REFERER }}">Go to previous site.</a>
-        <input type="submit" value="Yes">
+        <div class="submit-button">
+            <input type="submit" value="Yes">
+        </div>
     </form>
     </div>
 {% endblock %}

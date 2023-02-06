@@ -125,7 +125,17 @@ main {
 
 }
 
-
+.book_reviews{
+    display: grid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: justify;
+    width: 100%;
+    row-gap: 50px;
+    overflow: scroll;
+}
 .book {
     display: grid;
     padding-top: 10px;
@@ -137,16 +147,36 @@ main {
     row-gap: 50px;
     overflow: scroll;
 
+
 }
-.book>div{
+.book>div, #description{
     position: relative;
     margin-left: auto;
     margin-right: auto;
     width: 33em;
     cursor:pointer;
     background-color: lightgray;
-    height: fit-content;
+    height: 500px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20% 65% 15%;
+    border-radius: 10px;
 }
+#description{
+    display: grid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: inherit;
+    width: 100%;
+    grid-template-rows: auto;
+    border-radius: 20px;
+    height: auto;
+    justify-items: center;
+}
+
+
 .book_list_a{
   position: absolute;
   top: 0;
@@ -164,7 +194,9 @@ header{
 header i{
     font-size: 20px;
 }
-
+.book article{
+    display: block;
+}
 .book article:first-of-type{
     font-family: Cambria;
 }
@@ -176,6 +208,7 @@ header i{
     padding-left: 25%;
     padding-right: 25%;
     background-color: white;
+    grid-template-rows: auto;
 }
 #in_review>div{
     background-color: white;
@@ -186,27 +219,59 @@ header i{
     border-color: black;
     text-align: center;
     margin-top: 10px;
-
+    width: 25%;
+    display: grid;
+    margin: 0 auto;
+    border-radius: 10px;
 }
+.review div{
+    overflow-wrap: break-word;
+    word-break: break-all;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .review_title{
     font-weight: bold;
     font-size: larger;
 }
-.profile{
-    width: 100%;
-    padding-left: 25%;
-    padding-right: 25%;
-}
-.profile>div{
-    position: relative;
-    height: fit-content;
-}
+/*.profile{*/
+/*    width: 100%;*/
+/*    padding-left: 25%;*/
+/*    padding-right: 25%;*/
+/*}*/
+/*.profile>div{*/
+/*    position: relative;*/
+/*    height: fit-content;*/
+/*}*/
 #profile_info{
     height: fit-content;
     margin-top:20px;
     margin-bottom: 50px;
     border-style: groove;
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 20px;
+    text-align: center;
 }
+.profile{
+    display: grid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: justify;
+    width: 100%;
+    overflow: scroll;
+    grid-row-gap: 20px;
+}
+/*.profile>div{*/
+/*    position: relative;*/
+/*    height: fit-content;*/
+/*}*/
 
 .center {
     margin: auto;
@@ -246,7 +311,7 @@ header i{
 }
 .center p{
     text-align: center;
-    border-bottom: 1px solid #adadad;;
+    border-bottom: 1px solid #adadad;
     padding: 20px 0;
     display: block;
 }
@@ -278,6 +343,10 @@ header i{
     cursor: pointer;
     outline: none;
     width: 100%;
+}
+.small{
+    width: 75% !important;
+
 }
 
 .submit-button input[type="submit"]:hover, .submit-button button:hover {
