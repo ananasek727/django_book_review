@@ -12,23 +12,52 @@
                 <div><a href="{% url 'password_reset' %}">Change password</a></div>
 
         </div>
+{##}
+{#            {% for review in reviews %}#}
+{#            <div class="review ">#}
+{#                <div class="review_title">{{ review.title }} ({{ review.book.title }})</div>#}
+{#                <div style="text-align: justify">{{ review.content }}</div>#}
+{#                {% if request.user == review.user %}#}
+{#            <div style="display: grid; justify-content: center; padding: 10px; grid-template-columns: 50% 50%">#}
+{#                <div class="submit-button">#}
+{#                    <button class="small" onclick="location.href='{% url "delete_review" review.id%}'" type="submit">Delete</button>#}
+{#                </div>#}
+{#                <div class="submit-button">#}
+{#                    <button class="small" onclick="location.href='{% url "update_review" review.id%}'" type="submit">Update</button>#}
+{#                </div>#}
+{#            </div>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#            {% endfor %}#}
+        <div class="container">
+        <h1 style="text-align: left; padding-left: 36%">Your reviews:</h1>
+        <div style="grid-column-start: 1; grid-column-end: 3; padding-left:15px; padding-right: 15px "><hr></div>
 
-            {% for review in reviews %}
-            <div class="review ">
+        {% for review in reviews %}
+            <div class="review">
+            <div class="col-25">
+                <div><i>User: {{ review.user }}</i></div><div><i>{{ review.pub_date }}</i></div>
+            </div>
+            <div class="col-75">
                 <div class="review_title">{{ review.title }} ({{ review.book.title }})</div>
-                <div style="text-align: justify">{{ review.content }}</div>
+                <div class="review-content">{{ review.content }}</div>
                 {% if request.user == review.user %}
-            <div style="display: grid; justify-content: center; padding: 10px; grid-template-columns: 50% 50%">
-                <div class="submit-button">
-                    <button class="small" onclick="location.href='{% url "delete_review" review.id%}'" type="submit">Delete</button>
+                <div style="display: grid; justify-content: center; padding: 10px; grid-template-columns: 50% 50%">
+                    <div class="submit-button">
+                        <button class="small" onclick="location.href='{% url "delete_review" review.id%}'" type="submit">Delete</button>
+                    </div>
+                    <div class="submit-button">
+                        <button class="small" onclick="location.href='{% url "update_review" review.id%}'" type="submit">Update</button>
+                    </div>
                 </div>
-                <div class="submit-button">
-                    <button class="small" onclick="location.href='{% url "update_review" review.id%}'" type="submit">Update</button>
-                </div>
+            {% endif %}
             </div>
-                {% endif %}
-            </div>
-            {% endfor %}
+        <div style="clear: both; grid-column-start: 1; grid-column-end: 3; padding-left:15px; padding-right: 15px "><hr></div>
+
+
+        </div>
+        {% endfor %}
+    </div>
 
     {% else %}
         <h5 style="text-align: center; color: red">You should not be here</h5>

@@ -16,29 +16,42 @@
         <article>
             <div><br><i>Publication date</i>: {{ book.pub_date_book }}</div>
             <div><i>Number of reviews</i>: {{ book.numbers_of_review }}</div>
-            <div><i>Rating</i>: {{ book.stars }}</div>
+            <div><i>Rating</i>: <span style="font-weight: bolder">{{ book.stars }}</span>/5</div>
         </article>
     </div>
     <div>
         <a href="{% url 'add_review' book.id %}"><b>Add review</b></a>
     </div>
-    {% for review in reviews %}
-    <div class="review ">
-        <div class="review_title">{{ review.title }}</div>
-        <div style="text-align: justify">{{ review.content }}</div>
-        <div style="text-align: left"><i>User: {{ review.user }}</i></div>
-        <div style="text-align: left"><i>{{ review.pub_date }}</i></div>
-        {% if request.user == review.user %}
-            <div style="display: grid; justify-content: center; padding: 10px; grid-template-columns: 50% 50%">
-                <div class="submit-button">
-                    <button class="small" onclick="location.href='{% url "delete_review" review.id%}'" type="submit">Delete</button>
-                </div>
-                <div class="submit-button">
-                    <button class="small" onclick="location.href='{% url "update_review" review.id%}'" type="submit">Update</button>
-                </div>
+    <div class="container">
+        <h1 style="text-align: left; padding-left: 36%">Reviews:</h1>
+        <div style="grid-column-start: 1; grid-column-end: 3; padding-left:15px; padding-right: 15px "><hr></div>
+
+        {% for review in reviews %}
+            <div class="review">
+            <div class="col-25">
+                <div><i>User: {{ review.user }}</i></div>
+                <div><i>{{ review.pub_date }}</i></div>
+                <div><i>Rating: {{ review.stars }} / 5</i></div>
             </div>
-        {% endif %}
+            <div class="col-75">
+                <div class="review_title">{{ review.title }}</div>
+                <div class="review-content">{{ review.content }}</div>
+                {% if request.user == review.user %}
+                <div style="display: grid; justify-content: center; padding: 10px; grid-template-columns: 50% 50%">
+                    <div class="submit-button">
+                        <button class="small" onclick="location.href='{% url "delete_review" review.id%}'" type="submit">Delete</button>
+                    </div>
+                    <div class="submit-button">
+                        <button class="small" onclick="location.href='{% url "update_review" review.id%}'" type="submit">Update</button>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+        <div style="clear: both; grid-column-start: 1; grid-column-end: 3; padding-left:15px; padding-right: 15px "><hr></div>
+
+
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

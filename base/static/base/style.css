@@ -161,6 +161,7 @@ main {
     grid-template-columns: auto;
     grid-template-rows: 20% 65% 15%;
     border-radius: 10px;
+    box-shadow: 10px 10px 15px rgb(0 0 0 / 40%);
 }
 #description{
     display: grid;
@@ -214,32 +215,76 @@ header i{
     background-color: white;
     row-gap: 10px;
 }
-.review{
-    border-style: double;
-    border-color: black;
-    text-align: center;
-    margin-top: 10px;
-    width: 25%;
-    display: grid;
+/*.review{*/
+/*    border-style: double;*/
+/*    border-color: black;*/
+/*    text-align: center;*/
+/*    margin-top: 10px;*/
+/*    width: 500px;*/
+/*    display: grid;*/
+/*    margin: 0 auto;*/
+/*    border-radius: 10px;*/
+/*}*/
+.container{
+    background-color: lightblue;
+    border: 1px solid #EFEFEF;
+    padding: 15px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    width: 700px;
     margin: 0 auto;
-    border-radius: 10px;
+    height: fit-content;
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px rgb(0 0 0 / 40%);
+
 }
+.review{
+    margin-right: -15px;
+    margin-left: -15px;
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+/*.review:before{*/
+/*    display: table;*/
+/*    content: " ";*/
+/*}*/
+.review:after{
+    clear: both;
+}
+
+/*.col-75{*/
+/*    width: 75%;*/
+/*    float: initial;*/
+/*}*/
+/*.col-25{*/
+/*    width: 25%;*/
+/*    float: left;*/
+/*}*/
+.col-25, .col-75{
+
+   position: relative;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
+}
+
 .review div{
     overflow-wrap: break-word;
     word-break: break-all;
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.review-content{
+
+}
 
 .review_title{
     font-weight: bold;
     font-size: larger;
 }
-/*.profile{*/
-/*    width: 100%;*/
-/*    padding-left: 25%;*/
-/*    padding-right: 25%;*/
-/*}*/
+.profile{
+    width: 700px
+}
 /*.profile>div{*/
 /*    position: relative;*/
 /*    height: fit-content;*/
@@ -249,13 +294,15 @@ header i{
     margin-top:20px;
     margin-bottom: 50px;
     border-style: groove;
-    width: 40%;
+    width: 700px;
     margin: 0 auto;
     border-radius: 20px;
     display: grid;
     grid-template-rows: auto;
     grid-row-gap: 20px;
     text-align: center;
+    background-color: lightgray;
+    box-shadow: 10px 10px 15px rgb(0 0 0 / 20%);
 }
 .profile{
     display: grid;
@@ -378,11 +425,13 @@ header i{
 }
 .error{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  margin: 0 auto;
   width: 60%;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 50px;
+    font-size: 20px;
+
   height: fit-content;
   padding: 10px;
   color: red;
